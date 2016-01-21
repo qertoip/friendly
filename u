@@ -1,0 +1,3 @@
+#!/bin/bash
+mix deps.update --all
+mix deps.clean --unused --unlock
