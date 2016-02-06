@@ -3,7 +3,7 @@ defmodule Friendly.Mixfile do
 
   def project do
     [app: :friendly,
-     version: "1.0.0",
+     version: "1.0.1",
      description: "HTML and XML parser with the most friendly API in Elixir land. CSS selector in, list of elements out.",
      elixir: "~> 1.2",
      package: package,
@@ -25,7 +25,7 @@ defmodule Friendly.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :floki]]
   end
 
   # Dependencies can be Hex packages:
