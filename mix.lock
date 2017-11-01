@@ -1,2 +1,2 @@
-%{"floki": {:hex, :floki, "0.7.1"},
-  "mochiweb": {:hex, :mochiweb, "2.12.2"}}
+%{"floki": {:hex, :floki, "0.18.1", "6f903e3074357fe9756079d0f607e430589912f698b5c5e5970af08daba1537c", [], [{:mochiweb, "~> 2.15", [hex: :mochiweb, repo: "hexpm", optional: false]}], "hexpm"},
+  "mochiweb": {:hex, :mochiweb, "2.15.0", "e1daac474df07651e5d17cc1e642c4069c7850dc4508d3db7263a0651330aacc", [], [], "hexpm"}}

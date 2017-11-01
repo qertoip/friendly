@@ -2,7 +2,7 @@ defmodule FriendlyTest do
   use ExUnit.Case
 
   test "Non-matching selector" do
-    xml = String.strip("""
+    xml = String.trim("""
       <?xml version="1.0" encoding="UTF-8"?>
       <root/>
     """)
@@ -12,7 +12,7 @@ defmodule FriendlyTest do
   end
 
   test "Single empty element" do
-    xml = String.strip("""
+    xml = String.trim("""
       <?xml version="1.0" encoding="UTF-8"?>
       <root/>
     """)
@@ -25,7 +25,7 @@ defmodule FriendlyTest do
   end
 
   test "Single empty element with attributes" do
-    xml = String.strip("""
+    xml = String.trim("""
       <?xml version="1.0" encoding="UTF-8"?>
       <root id="2" iAmCamelCased="iAmCamelCased" some_attr="some attr" data-attr="ĄĆĘŁŃÓŚŻŹ" i-AM-Strange="strange" />
     """)
@@ -44,7 +44,7 @@ defmodule FriendlyTest do
   end
 
   test "Single element with text" do
-    xml = String.strip("""
+    xml = String.trim("""
       <?xml version="1.0" encoding="UTF-8"?>
       <root> \t I am some text in first line.\nI should be in the second line.\nAnd me in the third. \t </root>
     """)
@@ -57,7 +57,7 @@ defmodule FriendlyTest do
   end
 
   test "Nested single element with atributes and text" do
-    xml = String.strip("""
+    xml = String.trim("""
       <?xml version="1.0" encoding="UTF-8"?>
       <root>
         XXXXX1
@@ -72,11 +72,11 @@ defmodule FriendlyTest do
     target = hd(elements)
     assert(target.name == "target")
     assert(target.attributes["name"] == "Sporitelna_cz")
-    assert(String.strip(target.text) == "yyyyy2")
+    assert(String.trim(target.text) == "yyyyy2")
   end
 
   test "Multiple nested elements" do
-    xml = String.strip("""
+    xml = String.trim("""
       <?xml version="1.0" encoding="UTF-8"?>
       <root>
         XXXXX1
@@ -97,12 +97,12 @@ defmodule FriendlyTest do
     assert(c2.name == "command")
     assert(c1.attributes["id"] == "c1")
     assert(c2.attributes["id"] == "c2")
-    assert(String.strip(c1.text) == "")
-    assert(String.strip(c2.text) == "UU")
+    assert(String.trim(c1.text) == "")
+    assert(String.trim(c2.text) == "UU")
   end
 
   test "Multiple text nodes" do
-    xml = String.strip("""
+    xml = String.trim("""
       <?xml version="1.0" encoding="UTF-8"?>
       <root>
         XXXXX1
@@ -119,9 +119,9 @@ defmodule FriendlyTest do
     elements = Friendly.find(xml, "target")
     assert(Enum.count(elements) == 1)
     target = hd(elements)
-    assert(String.strip(target.text) =~ "yyyyy2.1")
-    assert(String.strip(target.text) =~ "yyyyy2.2")
-    assert(String.strip(target.text) =~ "yyyyy2.3")
+    assert(String.trim(target.text) =~ "yyyyy2.1")
+    assert(String.trim(target.text) =~ "yyyyy2.2")
+    assert(String.trim(target.text) =~ "yyyyy2.3")
     assert(Enum.count(target.texts) == 3)
   end
 
