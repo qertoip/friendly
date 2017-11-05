@@ -5,11 +5,11 @@ defmodule Friendly.Mixfile do
     [app: :friendly,
      version: "1.0.1",
      description: "HTML and XML parser with the most friendly API in Elixir land. CSS selector in, list of elements out.",
-     elixir: "~> 1.2",
-     package: package,
+     elixir: "~> 1.5",
+     package: package(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
   def package do
@@ -39,7 +39,7 @@ defmodule Friendly.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:floki, "~> 0.7"}
+      {:floki, "~> 0.18"}
     ]
   end
 end
